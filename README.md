@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProcureAI Demo
 
-## Getting Started
+A modern B2B SaaS demo website for AI-powered procurement and ERP solutions.
+Built with Next.js (App Router), TypeScript, Tailwind CSS, SQLite, and Prisma.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Marketing Pages**: Home, Solutions, Industries, Platform, About.
+- **Lead Generation**: Functional "Book a Demo" form that saves to local database.
+- **Admin Dashboard**: View and manage demo requests at `/admin/leads`.
+- **Local Database**: Uses SQLite (`dev.db`), no external dependencies required.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Setup Database**
+    Initialize the SQLite database and generate the Prisma client:
+    ```bash
+    npx prisma generate
+    npx prisma db push
+    ```
 
-## Learn More
+3.  **Run Development Server**
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4.  **View the App**
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Admin Access
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Go to [http://localhost:3000/admin/leads](http://localhost:3000/admin/leads) to view submitted demo requests.
+- No authentication is required for this demo version.
 
-## Deploy on Vercel
+## Troubleshooting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- If you encounter database errors, try running `npx prisma db push` again to reset the schema.
+- Ensure you have Node.js 18+ installed.
